@@ -14,11 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class DepthCalculator {
   calculateDepth(arr) {
-    const open = '[';
-    const close = ']';
-    let sum = 0;
-
-    return sum;
+    return arr;
   }
 }
 

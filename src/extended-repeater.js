@@ -16,8 +16,33 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function repeater(str, options) {
-  console.log(options.addition);
-  return str.repeat(options.repeatTimes);
+  console.log(
+    'string: ' +
+      str +
+      ' repeatTimes: ' +
+      options.repeatTimes +
+      ' separator: ' +
+      options.separator +
+      ' addition: ' +
+      options.addition +
+      ' additionRepeatTimes: ' +
+      options.additionRepeatTimes +
+      ' additionSeparator: ' +
+      options.additionSeparator
+  );
+  if (!options.separator) {
+    options.separator = '+';
+  }
+  if (!options.addition) {
+    options.addition = '';
+  }
+  if (!options.repeatTimes) {
+    options.repeatTimes = 1;
+  }
+  arr = new Array(options.repeatTimes - 1);
+  arr.push(str);
+
+  return arr.fill(str + options.addition).join(options.separator);
 }
 
 module.exports = {
