@@ -33,16 +33,24 @@ function repeater(str, options) {
   if (!options.separator) {
     options.separator = '+';
   }
+  if (!options.additionSeparator || !options.additionRepeatTimes) {
+    options.additionSeparator = '';
+  }
+
   if (!options.addition) {
     options.addition = '';
   }
   if (!options.repeatTimes) {
     options.repeatTimes = 1;
   }
+  if (!options.additionRepeatTimes) {
+    options.additionRepeatTimes = 1;
+  }
   arr = new Array(options.repeatTimes - 1);
   arr.push(str);
+  let newStrArr = arr.fill(str + (options.addition + options.additionSeparator).repeat(options.additionRepeatTimes));
 
-  return arr.fill(str + options.addition).join(options.separator);
+  return newStrArr.join(options.separator + options.additionSeparator);
 }
 
 module.exports = {
